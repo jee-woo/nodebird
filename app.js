@@ -15,6 +15,7 @@ dotenv.config(); // process.env 사용
 const pageRouter = require("./routes/page");
 const authRouter = require("./routes/auth");
 const postRouter = require("./routes/post");
+const userRouter = require("./routes/user");
 const passportConfig = require("./passport");
 
 const app = express();
@@ -62,6 +63,7 @@ app.use(passport.session()); // 세션이 만들어지고 connect.sid 라는 이
 app.use("/", pageRouter);
 app.use("/auth", authRouter);
 app.use("/post", postRouter);
+app.use("/user", userRouter);
 
 app.use((req, res, next) => {
   // 404 NOT FOUND
